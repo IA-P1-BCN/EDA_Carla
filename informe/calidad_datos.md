@@ -4,6 +4,9 @@
 **Auditoría:** automática (`python pipeline.py` → `data/processed/informe_calidad.json`) + revisión manual en los notebooks
 **Fecha de la revisión:** noviembre 2026
 
+> Este informe responde a las cuatro preguntas que pide el encargo:
+> **qué faltaba, qué se corrigió, qué quedó pendiente y por qué.**
+
 ---
 
 ## 1. Estado inicial del dataset
@@ -18,7 +21,7 @@
 
 ---
 
-## 2. Qué faltaba (y qué se hizo)
+## 2. Qué faltaba y qué se corrigió
 
 | Problema | Volumen | Decisión | Justificación |
 |---|---|---|---|
