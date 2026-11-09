@@ -44,9 +44,11 @@ En totales absolutos mandan **California (54.124 muertes), Texas (44.451) y Nuev
 ![Top 10 muertes](../assets/medio_top10_muertes.png)
 
 Al ajustar con los ratios que creamos (positividad global y muertes por cada 1.000 pruebas),
-aparece otra historia: **Georgia (13,9%) y Texas (13,5%)** tuvieron más de la mitad de sus
-pruebas positivas que **Nueva York (4,2%)**, que encima tiene las muertes totales más
-altas «por habitante testado». Los estados del grupo de **muertes altas** tuvieron una
+aparece otra historia: **Georgia (13,9%) y Texas (13,5%)** tuvieron **más del triple** de
+pruebas positivas que **Nueva York (4,2%)**. Y en muertes por cada 1.000 pruebas, Nueva York
+se queda en **1,0** frente a **2,4 de Georgia** y **2,2 de Texas**: con muertes totales
+parecidas en la liga alta (39.029 vs. 17.906 de Georgia), Nueva York detectó muchos más
+casos de los que el sur pasó por alto. Los estados del grupo de **muertes altas** tuvieron una
 positividad media del **8,9% frente al 6,2%** de los de muertes bajas: **la letalidad detectada
 sí distingue grupos; los totales crudos, no.**
 
