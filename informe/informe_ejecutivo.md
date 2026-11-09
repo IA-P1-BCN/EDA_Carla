@@ -106,18 +106,50 @@ se quedó en torno al 5-7%.
 
 ---
 
-## 6. Recomendaciones
+## 6. La comparación definitiva: por cada 100.000 habitantes
+
+Hemos cruzado los datos con el **Census Bureau** (población oficial de cada estado) y el
+ranking cambia por completo:
+
+![Total vs. tasa](../assets/avanzado_total_vs_tasa.png)
+
+| Por totales | Por cada 100.000 hab. |
+|---|---|
+| 1. California | 1. **Nueva Jersey (254)** |
+| 2. Texas | 2. **Massachusetts (235)** |
+| 3. Nueva York | 3. **Rhode Island (232)** |
+
+**California ni siquiera entra en el top-8 de gravedad relativa.** Y por regiones, el
+**Noreste (201,5 muertes/100k)** lidera con claridad, por delante del Medio Oeste (156,2),
+el Sur (150,4) y el Oeste (126,2).
+
+![Tasa por región](../assets/avanzado_tasa_por_region.png)
+
+> **Lectura para la dirección:** centrar recursos donde hay más *personas* no es lo mismo
+> que centrarlos donde hay más *riesgo*. El noreste fue la zona más castigada en
+> términos relativos — y con diferencia.
+
+*(Mapa interactivo y evolución por región con valores al pasar el ratón: notebook `03`,
+sección 5. Requiere ejecutar el notebook para verlos.)*
+
+---
+
+## 7. Recomendaciones
 
 1. **Adoptar la positividad semanal como indicador de alerta** (umbral 5%): tiene 2-4 semanas
    de ventaja sobre las hospitalizaciones.
-2. **Nunca comparar estados por totales crudos**; usar tasas — el ranking cambia por completo.
+2. **Nunca comparar estados por totales crudos**; usar tasas por cada 100.000 habitantes —
+   el ranking cambia por completo (arriba).
 3. **Comunicar las cifras con medias de 7 días**: los datos diarios mienten por calendario
    administrativo (fines de semana y festivos).
-4. **Pendiente:** población por estado para tasas por cada 100.000 habitantes, la comparación
-   definitiva (nivel avanzado del proyecto).
+4. **Tratar los «datos imposibles» como información, no como basura**: los acumulados que
+   bajan (73 días de muertes negativas) son correcciones reales; borrarlos habría inflado
+   los totales. Documentados en el notebook 03.
 
 ---
 
 *Anexo técnico — para quien quiera revisar el cómo: notebook `01_eda_covid.ipynb` (carga y
-diagnóstico) y `02_eda_covid_medio.ipynb` (limpieza justificada, outliers, variables nuevas,
-agrupaciones, correlación y series temporales). Datos limpios en `data/processed/covid_limpio.csv`.*
+diagnóstico), `02_eda_covid_medio.ipynb` (limpieza justificada, outliers, variables nuevas,
+agrupaciones, correlación y series temporales) y `03_eda_covid_avanzado.ipynb` (normalización,
+Census Bureau, calidad de datos, escala logarítmica, regiones y gráficos plotly). La limpieza
+vive en `src/limpieza.py` (reutilizable). Datos en `data/processed/`.*
