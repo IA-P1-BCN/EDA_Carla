@@ -2,6 +2,60 @@
 
 <img width="11520" height="3456" alt="Banner Proyectos" src="https://github.com/user-attachments/assets/a6561ed2-24e1-451a-b75d-07e0e85aed63" />
 
+## 🚀 Cómo ejecutar este análisis
+
+### 1. De dónde salen los datos
+
+| Fuente | Qué aporta | Uso |
+|---|---|---|
+| [COVID Tracking Project](https://covidtracking.com/data/download) (API pública) | 20.780 registros diarios de casos, pruebas, hospitalizaciones y muertes por estado (13/01/2020 – 07/03/2021) | Dataset principal — se descarga una vez y se cachea en `data/raw/covid_tracking.csv` |
+| [US Census Bureau](https://www.census.gov/programs-surveys/popest.html) | Población y región de cada estado (estimación 2020) | Segunda fuente para las tasas por 100.000 hab. — cacheada en `data/raw/poblacion_census.csv` |
+
+> Los CSV descargados **no se suben a Git** (son regenerables): `.gitignore` los excluye.
+
+### 2. Instalar las librerías
+
+Requisito: **Python 3.10 o superior**.
+
+```bash
+git clone <url-del-repo>
+cd ai_project_EDA
+python -m venv .venv          # opcional pero recomendable
+# Windows: .venv\Scripts\activate   |   Linux/Mac: source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+### 3. Ejecutar el análisis
+
+```bash
+# Opción A — Todo de una vez (pipeline): limpia, enriquece y guarda los CSVs
+python pipeline.py
+
+# Opción B — Notebooks (abrir en orden: 01 → 02 → 03)
+jupyter lab                   # se abre en el navegador; entrar en notebooks/
+
+# Opción C — Tests de las funciones de limpieza
+python -m pytest tests/ -v    # 26 tests
+
+# Opción D — Dashboard interactivo para explorar/filtrar sin tocar código
+streamlit run dashboard/app.py
+```
+
+**Entregables del proyecto:**
+
+| Archivo | Qué contiene |
+|---|---|
+| `notebooks/01_eda_covid.ipynb` | Carga y diagnóstico de calidad (nivel esencial) |
+| `notebooks/02_eda_covid_medio.ipynb` | Limpieza justificada, outliers, variables nuevas, correlaciones, tendencias (nivel medio) |
+| `notebooks/03_eda_covid_avanzado.ipynb` | Normalización, merge con Census, calidad, escala log, plotly (nivel avanzado) |
+| `src/limpieza.py` | Funciones de limpieza reutilizables (usadas por notebooks, pipeline, dashboard y tests) |
+| `pipeline.py` | Reproducción completa con un solo comando |
+| `tests/test_limpieza.py` | 26 tests pytest (escritos antes que las funciones: TDD) |
+| `dashboard/app.py` | Panel Streamlit con filtros por región, estado, ola y fechas |
+| `informe/informe_ejecutivo.md` | Conclusiones para público no técnico |
+| `informe/calidad_datos.md` | Qué faltaba, qué se corrigió, qué quedó pendiente y por qué |
+| `informe/presentacion_5min.md` | Guion de presentación con storytelling (5 minutos) |
+
 ## 📋 Planteamiento
 
 Ustedes trabajan en el equipo de datos de una consultora. El CEO de un cliente les entrega un conjunto de datos que nadie ha mirado con calma y les pide algo muy concreto: **que le muestren datos limpios, con sentido, y la historia que hay detrás de ellos**, antes de decidir qué hacer con esa información.

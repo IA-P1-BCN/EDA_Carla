@@ -1,0 +1,18 @@
+# Datos crudos y procesados (se regeneran con los notebooks / pipeline)
+data/raw/*.csv
+data/processed/*.csv
+data/processed/*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Entornos y sistema
+.env
+.DS_Store
+Thumbs.db
