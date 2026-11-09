@@ -145,6 +145,37 @@ def limpiar(df_crudo: pd.DataFrame) -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------------------
+# Segmentación por olas (funcion escrita tras sus tests: TDD)
+# ---------------------------------------------------------------------------
+# Limites de cada periodo de la pandemia en EE. UU. (ver notebook 02: las tres
+# olas nacionales). Los bordes son inclusivos por la izquierda.
+OLAS = [
+    (pd.Timestamp("2020-07-01"), "primavera_2020"),
+    (pd.Timestamp("2020-10-01"), "verano_2020"),
+    (pd.Timestamp("2020-12-01"), "otono_2020"),
+    (pd.Timestamp("2021-03-01"), "invierno_2020"),
+]
+
+
+def clasificar_ola(fecha) -> str:
+    """Devuelve la ola/pandemia en la que cae una fecha (para filtrar el dashboard).
+
+    - primavera_2020: hasta el 30/06/2020
+    - verano_2020:    01/07/2020 - 30/09/2020
+    - otono_2020:     01/10/2020 - 30/11/2020
+    - invierno_2020:  01/12/2020 - 28/02/2021 (la gran ola)
+    - resto:          antes del inicio de la serie o en su tramo final
+    """
+    f = pd.Timestamp(fecha)
+    if f < pd.Timestamp("2020-03-01"):
+        return "resto"  # antes de que la pandemia llegara a los datos
+    for limite, nombre in OLAS:
+        if f < limite:
+            return nombre
+    return "resto"
+
+
+# ---------------------------------------------------------------------------
 # Segunda fuente: población (Census Bureau) y normalización
 # ---------------------------------------------------------------------------
 def mapeo_fips(df_crudo: pd.DataFrame) -> pd.DataFrame:

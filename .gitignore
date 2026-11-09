@@ -1,6 +1,7 @@
-# Datos crudos y procesados (se regeneran con los notebooks)
+# Datos crudos y procesados (se regeneran con los notebooks / pipeline)
 data/raw/*.csv
 data/processed/*.csv
+data/processed/*.json
 
 # Python
 __pycache__/
