@@ -1,5 +1,6 @@
-# Datos crudos (se regeneran con el notebook)
+# Datos crudos y procesados (se regeneran con los notebooks)
 data/raw/*.csv
+data/processed/*.csv
 
 # Python
 __pycache__/
